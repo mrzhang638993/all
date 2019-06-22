@@ -1,1 +1,14 @@
+dubbo:
+  application:
+    name: producer
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 20880
 
+server:
+  port: 9000
+spring:
+  main:
+    allow-bean-definition-overriding: true

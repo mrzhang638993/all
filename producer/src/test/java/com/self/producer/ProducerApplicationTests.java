@@ -1,4 +1,4 @@
-package com.self.study.producer;
+package com.self.producer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

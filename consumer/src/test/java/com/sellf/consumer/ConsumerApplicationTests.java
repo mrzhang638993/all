@@ -1,4 +1,4 @@
-package com.sellf.study.consumer;
+package com.sellf.consumer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
