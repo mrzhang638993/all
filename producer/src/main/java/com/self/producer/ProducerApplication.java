@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.IOException;
 
 @SpringBootApplication
-@EnableDubbo
+@EnableDubbo(scanBasePackages = "com.self.producer.server.impl")
 public class ProducerApplication {
 
     public static void main(String[] args)  {
