@@ -1,7 +1,7 @@
 package com.self.producer.server.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.self.producer.server.DemoService;
-import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 
