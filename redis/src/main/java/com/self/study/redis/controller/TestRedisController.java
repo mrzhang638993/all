@@ -37,11 +37,11 @@ public class TestRedisController {
     private   RedisTemplate  redisTemplate;
     @GetMapping("/add")
     public  void   test(){
-        UserVo  userVo= new UserVo();
+      /*  UserVo  userVo= new UserVo();
         userVo.setName("zhangcl");
         userVo.setAddress("湖北武汉");
         userVo.setAge(17);
-       redisTemplate.opsForHash().putAll(userVo,new HashMap());
+       redisTemplate.opsForHash().putAll(userVo,new HashMap());*/
 
     }
 
