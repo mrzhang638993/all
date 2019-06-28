@@ -3,6 +3,9 @@ package com.self.study.all;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
@@ -30,12 +33,13 @@ public class HbaseJavaTest {
 	private static Configuration conf = null ;
 	private static Connection conn = null ;
 	static {
+		ExecutorService  executorService= Executors.newFixedThreadPool(10);
 		conf = HBaseConfiguration.create() ;
 		//配置hbase的zookeeper
 		conf.set("hbase.zookeeper.quorum", "10.14.1.225:2181,10.14.1.226:2181,10.14.1.227:2181");
 		//conn
 		try {
-			conn = ConnectionFactory.createConnection(conf) ;
+			conn = ConnectionFactory.createConnection(conf,executorService) ;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -182,15 +186,15 @@ public class HbaseJavaTest {
 		
 	public static void main(String[] args) throws Exception {
 		//获得表描述信息
-//		getTableDesc("people") ;
+	//	getTableDesc("people") ;
 		//插入单条数据
-	//addOneData() ;
+	addOneData() ;
 		//扫描数据
-//		scanTable("people") ;
+	//scanTable("people") ;
 		//扫描多行
-//		scanForRange() ;
+	//scanForRange() ;
 		//获得单行数据
-//		getForRowKey("Ande0000500") ;
+ 	//getForRowKey("Ande0000500") ;
 		//添加列族
 //		alterTableAddCls() ;
 		
