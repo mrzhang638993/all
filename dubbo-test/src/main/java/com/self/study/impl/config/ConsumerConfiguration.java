@@ -19,7 +19,7 @@ public class ConsumerConfiguration {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConsumerConfiguration.class);
         context.start();
         final Consumer demoService = (Consumer) context.getBean("consumer");
-        System.out.println("hello :" + demoService.doSayHello("world"));
+        System.out.println("hello :" + demoService.doSayHello(null));
         System.out.println("goodbye :" + demoService.doSayHello("world"));
         System.out.println("greeting :" + demoService.doSayHello("world"));
         System.out.println("reply :" + demoService.doSayHello("world"));

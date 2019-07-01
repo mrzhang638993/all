@@ -16,11 +16,13 @@ public class ProviderConfiguration {
     public ProviderConfig providerConfig() {
         ProviderConfig providerConfig = new ProviderConfig();
         providerConfig.setTimeout(1000);
+        // 增加服务端的校验功能
+        providerConfig.setValidation("jvalidation");
         return providerConfig;
     }
 
     public static void main(String[] args) throws Exception {
-        new EmbeddedZooKeeper(2182, false).start();
+        new EmbeddedZooKeeper(2183, false).start();
         Thread.sleep(1000);
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProviderConfiguration.class);
