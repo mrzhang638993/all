@@ -12,7 +12,7 @@
     </dubbo:application>
 
     <!-- 使用multicast广播注册中心暴露服务地址 -->
-    <dubbo:registry address="multicast://224.1.2.3:1234?unicast=false" >
+    <dubbo:registry address="multicast://224.5.6.7:1234?unicast=false" >
         <dubbo:parameter key="unicast" value="false"/>
     </dubbo:registry>
 
