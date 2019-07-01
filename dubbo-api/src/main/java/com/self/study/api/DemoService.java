@@ -1,6 +1,9 @@
 package com.self.study.api;
 
+
+import javax.validation.constraints.NotNull;
+
 public interface DemoService {
 
-    String sayHello(String name);
+    String sayHello(@NotNull String name);
 }
