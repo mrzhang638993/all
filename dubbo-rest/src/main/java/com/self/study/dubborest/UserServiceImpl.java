@@ -1,4 +1,4 @@
-package  com.self.study.dubborest;
+package com.self.study.dubborest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
@@ -16,8 +16,8 @@ public class UserServiceImpl implements UserService {
 
     @POST
     @Path("regist")
-    @Consumes({ MediaType.APPLICATION_JSON, MediaType.TEXT_XML })
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.TEXT_XML })
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
     @Override
     public String regist(User user) {
         System.out.println(user);
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @POST
     @Path("{id:\\d+}")
-    @Produces({ MediaType.APPLICATION_JSON })
+    @Produces({MediaType.APPLICATION_JSON})
     @Override
     public User queryById(@PathParam("id") Long uid) {
         User user = new User();

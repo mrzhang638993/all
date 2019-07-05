@@ -1,10 +1,10 @@
 package com.self.study.dubborest;
 
 public class User {
-    private  Long   id;
-    private  String   name;
+    private Long id;
+    private String name;
 
-    private   int  age;
+    private int age;
 
     public Long getId() {
         return id;

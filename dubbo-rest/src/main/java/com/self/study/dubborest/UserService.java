@@ -4,6 +4,7 @@ public interface UserService {
 
     //  注册
     String regist(User user);
-     //  查询
+
+    //  查询
     User queryById(Long id);
 }

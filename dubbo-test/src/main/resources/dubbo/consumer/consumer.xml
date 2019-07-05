@@ -17,5 +17,5 @@
     </dubbo:registry>
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-    <dubbo:reference id="demoService" interface="com.self.study.api.DemoService"  check="false"  url="dubbo://127.0.0.1:20880"  validation="jvalidation"/>
+    <dubbo:reference id="demoService" interface="com.self.study.study.api.DemoService" check="false" url="dubbo://127.0.0.1:20880" validation="jvalidation"/>
 </beans>
