@@ -9,14 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableDubbo(scanBasePackages = "com.self.producer.server.impl")
 public class ProducerApplication {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
       /*  ClassPathXmlApplicationContext springApplication= new ClassPathXmlApplicationContext(new String[]{"classpath*:dubbo-producer.xml"});
         springApplication.start();*/
-        SpringApplication.run(ProducerApplication.class,args);
-       for (;;){
-           //System.out.println("coming");
-       }
+        SpringApplication.run(ProducerApplication.class, args);
+        for (; ; ) {
+            //System.out.println("coming");
+        }
     }
 
 }

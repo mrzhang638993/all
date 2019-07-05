@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Service
 public class DemoServiceImpl implements DemoService, Serializable {
-    public String sayHello( ) {
+    public String sayHello() {
         return "hello";
     }
 }
