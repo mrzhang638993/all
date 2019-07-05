@@ -15,6 +15,6 @@
 
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-    <dubbo:reference id="demoService" interface="DemoService" timeout="6000" retries="0"
+    <dubbo:reference id="demoService" interface="com.self.study.producer.server.DemoService" timeout="6000" retries="0"
                      mock="return null"/>
 </beans>

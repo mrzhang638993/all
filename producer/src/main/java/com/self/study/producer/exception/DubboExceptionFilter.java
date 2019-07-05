@@ -6,6 +6,7 @@ import com.alibaba.dubbo.common.logger.Logger;
 import com.alibaba.dubbo.common.logger.LoggerFactory;
 import com.alibaba.dubbo.common.utils.ReflectUtils;
 import com.alibaba.dubbo.common.utils.StringUtils;
+import com.alibaba.dubbo.rpc.*;
 import com.alibaba.dubbo.rpc.service.GenericService;
 
 import java.lang.reflect.Method;

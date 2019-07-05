@@ -17,8 +17,8 @@
 
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.self.producer.server.DemoService" ref="demoService" timeout="6000"/>
+    <dubbo:service interface="com.self.study.producer.server.DemoService" ref="demoService" timeout="6000"/>
 
     <!-- 和本地bean一样实现服务 -->
-    <bean id="demoService" class="com.self.producer.server.impl.DemoServiceImpl"/>
+    <bean id="demoService" class="com.self.study.producer.server.impl.DemoServiceImpl"/>
 </beans>
