@@ -6,6 +6,7 @@
     <modules>
         <module>dubbo-test</module>
         <module>dubbo-api</module>
+        <module>dubbo-redis</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
