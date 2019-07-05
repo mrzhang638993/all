@@ -35,7 +35,8 @@ public class RedisApplicationTests {
       User   user = new User();
       user.setName("zhangchenglong");
       user.setAge(19);
-        redisTemplate.opsForHash().put("user","userInput",user);
-
+       redisTemplate.opsForHash().put("user","userInput",user);
+        User user1 = (User) redisTemplate.opsForHash().get("user", "userInput");
+        System.out.println(user.toString());
     }
 }
