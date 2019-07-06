@@ -27,6 +27,8 @@ public class NioServer {
                 socketChannel.configureBlocking(false); // 默认是阻塞的,一定要设置为非阻塞
                 try {
                     ByteBuffer requestBuffer = ByteBuffer.allocate(1024);
+
+                    //  对应的存在问题的，当客户端没有数据的请情况下，会一直等待的，对应的只允许一个客户端的连接的
                     while (socketChannel.isOpen() && socketChannel.read(requestBuffer) != -1) {
                         // 长连接情况下,需要手动判断数据有没有读取结束 (此处做一个简单的判断: 超过0字节就认为请求结束了)
                         if (requestBuffer.position() > 0) break;
