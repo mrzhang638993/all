@@ -20,8 +20,5 @@ public class Client {
         os.write(msg.getBytes());
         os.write(System.lineSeparator().getBytes());
 
-        while (true){
-
-        }
     }
 }

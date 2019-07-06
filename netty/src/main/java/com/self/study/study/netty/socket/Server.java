@@ -19,6 +19,5 @@ public class Server {
                 System.out.println(msg);
             }
         }
-        serverSocket.close();
     }
 }
