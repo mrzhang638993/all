@@ -15,14 +15,13 @@ public class ServerOptimize {
 
     public static void main(String[] args) throws IOException {
         ServerSocket  serverSocket = new ServerSocket(10000);
-        //  使用线程池进行操作的话，可以接受客户端的数量等于线程池的数量信息的。
+        //  使用线程池进行操作的话，可以接受客户端的数量等于线程池的数量信息的。开启了大量的线程进行操作的，存在很大的问题的
         while(!serverSocket.isClosed()){
+            Socket  accept = serverSocket.accept();
             executor.submit(new Runnable() {
                 @Override
                 public void run() {
-                    Socket accept = null;
                     try {
-                        accept = serverSocket.accept();
                         InputStream is = accept.getInputStream();
                         BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(is));
                         //  阻塞方法，需要等待客户端的输入的，无输入的话，会一直等待的。
