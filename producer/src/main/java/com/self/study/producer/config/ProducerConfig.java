@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class ProducerConfig {
 
 
-    @Bean
+ /*   @Bean
     public RegistryConfig  registryConfig(){
         RegistryConfig  registryConfig= new RegistryConfig();
         registryConfig.setAddress("zookeeper://127.0.0.1:2181");
@@ -27,5 +27,5 @@ public class ProducerConfig {
        // serviceConfig.setRef(new DemoServiceImpl());
         serviceConfig.export();
         return   serviceConfig;
-    }
+    }*/
 }

@@ -16,10 +16,13 @@
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880"/>
 
+    <!--启用dubbo注解扫描-->
+    <dubbo:annotation   package="com.self.study.producer.server"></dubbo:annotation>
 
-    <!-- 声明需要暴露的服务接口 -->
+
+   <!-- &lt;!&ndash; 声明需要暴露的服务接口 &ndash;&gt;
     <dubbo:service interface="com.self.study.producer.server.DemoService" ref="demoService" timeout="6000"/>
 
-    <!-- 和本地bean一样实现服务 -->
-    <bean id="demoService" class="com.self.study.producer.server.impl.DemoServiceImpl"/>
+    &lt;!&ndash; 和本地bean一样实现服务 &ndash;&gt;
+    <bean id="demoService" class="com.self.study.producer.server.impl.DemoServiceImpl"/>-->
 </beans>
