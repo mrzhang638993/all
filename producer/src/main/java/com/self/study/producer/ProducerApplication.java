@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 @SpringBootApplication
-/*@EnableDubbo(scanBasePackages = "com.self.study.producer.server.impl")*/
+
 public class ProducerApplication {
 
     public static void main(String[] args) {
