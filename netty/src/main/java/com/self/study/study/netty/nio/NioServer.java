@@ -15,8 +15,6 @@ public class NioServer {
         ServerSocketChannel  serverSocketChannel=  ServerSocketChannel.open();
         //  指定服务端的绑定端口信息
         serverSocketChannel.bind(new InetSocketAddress(10000));
-        //  设置非阻塞模式
-        serverSocketChannel.configureBlocking(false);
 
         while (true) {
             // 服务端循环等待客户端的连接
