@@ -18,7 +18,7 @@ public class TestDemoConsumer {
         return demoService.sayHello();
     }
 
-    @Autowired
+    @Reference
     private DemoService demoService;
 
 }
