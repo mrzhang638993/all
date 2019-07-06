@@ -7,7 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 @SpringBootApplication
-
 public class ProducerApplication {
 
     public static void main(String[] args) {
