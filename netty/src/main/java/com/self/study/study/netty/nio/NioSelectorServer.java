@@ -12,6 +12,7 @@ import java.util.Set;
 
 public class NioSelectorServer {
 
+    //  对应的只能够在单个cpu上面执行的，需要进行相关的优化的，需要使用多线程才可以充分使用到多核和多线程的优势的。
     private  static   ByteBuffer  byteBuffer=ByteBuffer.allocate(1024);
     public static void main(String[] args) throws IOException {
         // 创建服务端的serversocketchannel
