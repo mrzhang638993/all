@@ -4,7 +4,10 @@ package com.self.study.study.netty.nio;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
-import java.nio.channels.*;
+import java.nio.channels.SelectableChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,7 +20,7 @@ public class MainReactor extends Thread {
     private Selector selector;
 
     //  提高acceptor的利用率信息
-     private    ConcurrentHashMap<SelectableChannel,Acceptor>  acceptors  = new ConcurrentHashMap();
+    private ConcurrentHashMap<SelectableChannel, Acceptor> acceptors = new ConcurrentHashMap();
 
     public MainReactor() throws IOException {
         serverSocketChannel = ServerSocketChannel.open();
@@ -43,18 +46,18 @@ public class MainReactor extends Thread {
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
                 Iterator<SelectionKey> it = selectionKeys.iterator();
                 while (it.hasNext()) {
-                SelectionKey next = it.next();
+                    SelectionKey next = it.next();
                     SelectableChannel channel = next.channel();
                     Acceptor acceptor = acceptors.get(channel);
-                    if (acceptor==null){
+                    if (acceptor == null) {
                         acceptor = new Acceptor(next, selector);
                         next.attach(acceptor);
-                        acceptors.put(channel,acceptor);
+                        acceptors.put(channel, acceptor);
                     }
-                dispatch(next);
-                it.remove();
+                    dispatch(next);
+                    it.remove();
+                }
             }
-        }
         } catch (IOException ex) { /* ... */ }
     }
 
