@@ -29,7 +29,7 @@ public class Acceptor  extends   Thread {
             dispatchers[i] = new IOReactor();
         }
         for (int i = 0; i < 4; i++) {
-            //  reactor从线程启动
+            //  reactor从线程启动，开始处理监听到的事件信息
             threads[i] = new Thread(dispatchers[i]);
             threads[i].start();
         }

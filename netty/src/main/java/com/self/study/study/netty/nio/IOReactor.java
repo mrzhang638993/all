@@ -99,6 +99,7 @@ public class IOReactor  implements Runnable{
     }
 
     public void addChannel(SocketChannel socketChannel) {
+        //  传入新增加的SocketChannel信息的，客户端对于新增加的channel执行的是accept请求信息的。
         newChannels.add(socketChannel);
         selector.wakeup();
     }
