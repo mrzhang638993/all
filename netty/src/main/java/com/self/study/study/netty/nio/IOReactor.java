@@ -18,10 +18,12 @@ public class IOReactor  implements Runnable{
 
     private Selector selector;
 
+    //  管理新加入的SocketChannel使用
     private Queue<SocketChannel> newChannels = new ConcurrentLinkedQueue<>();
 
     private static Charset charset = Charset.defaultCharset();
 
+    //  执行相关的业务请求使用的。
     private static ExecutorService workerPool = Executors.newFixedThreadPool(200);
 
     public IOReactor() throws Exception {

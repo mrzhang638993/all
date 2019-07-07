@@ -12,9 +12,11 @@ public class Acceptor  extends   Thread {
 
     private Selector selector;
 
+    //  创建从reactor线程使用
     private Thread[] threads = new Thread[4];
-
     private IOReactor[] dispatchers = new IOReactor[4];
+
+
 
     public Acceptor() throws Exception {
         ServerSocketChannel ssc = ServerSocketChannel.open();
