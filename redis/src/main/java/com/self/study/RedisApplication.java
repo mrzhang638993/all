@@ -1,4 +1,4 @@
-package com.self.study.study.redis;
+package com.self.study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.self.study.study.redis.bo;
+package com.self.study.redis.bo;
 
 import java.io.Serializable;
 

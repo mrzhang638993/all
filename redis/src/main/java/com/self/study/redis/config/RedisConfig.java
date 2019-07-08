@@ -1,4 +1,4 @@
-package com.self.study.study.redis.config;
+package com.self.study.redis.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;

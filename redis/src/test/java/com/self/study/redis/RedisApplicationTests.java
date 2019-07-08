@@ -1,6 +1,6 @@
-package com.self.study.study.redis;
+package com.self.study.redis;
 
-import com.self.study.study.redis.bo.User;
+import com.self.study.redis.bo.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
