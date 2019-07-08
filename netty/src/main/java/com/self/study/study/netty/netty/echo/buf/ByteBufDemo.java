@@ -39,7 +39,5 @@ public class ByteBufDemo {
         byte[]   newInput= new  byte[]{11,12,13,14,15};
         buffer.writeBytes(newInput);
         System.out.println("数据插入之后的操作信息如下："+Arrays.toString(buffer.array()) );
-
-
     }
 }
