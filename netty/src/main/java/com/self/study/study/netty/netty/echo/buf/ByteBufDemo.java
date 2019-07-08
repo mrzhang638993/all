@@ -12,12 +12,9 @@ public class ByteBufDemo {
 
         // 初始化256字节的bytebuf,对应的是非池化的bytebuf的
         ByteBuf buffer = Unpooled.buffer(10);
-
         byte []  input=new  byte[]{1,2,3,4,5};
         buffer.writeBytes(input);
         System.out.println("写入元素之后，对应的buffer的相关的信息"+Arrays.toString(buffer.array()) );
-
-
         //  获取到的是直接内存信息
         ByteBuf byteBuf = buffer.readBytes(3);
         for (int i = 0; i <byteBuf.capacity() ; i++) {
@@ -25,7 +22,6 @@ public class ByteBufDemo {
         }
         //  读取元素之后
         System.out.println("读取元素之后，对应的buffer的相关的信息"+Arrays.toString(buffer.array()) );
-
         // 丢失相关读取的数据
         buffer.discardReadBytes();
         System.out.println("元素清除之后，"+Arrays.toString(buffer.array()) );
