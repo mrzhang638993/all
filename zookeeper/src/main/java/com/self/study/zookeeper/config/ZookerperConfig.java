@@ -2,8 +2,6 @@ package com.self.study.zookeeper.config;
 
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.serialize.SerializableSerializer;
-import org.apache.curator.CuratorZookeeperClient;
-import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.RetryNTimes;
@@ -25,11 +23,11 @@ public class ZookerperConfig {
     public CuratorFramework curatorFramework() {
         CuratorFramework curatorFramework = CuratorFrameworkFactory.builder()
                 .connectString("localhost:2181").connectionTimeoutMs(12000)
-                .retryPolicy(new RetryNTimes(2,5))
+                .retryPolicy(new RetryNTimes(2, 5))
                 .build();
         //  必须要启动start ，否则存在异常的。状态无法检测的。
         curatorFramework.start();
-         return  curatorFramework;
+        return curatorFramework;
     }
 
 }

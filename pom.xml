@@ -6,7 +6,11 @@
     <modules>
         <module>dubbo-test</module>
         <module>dubbo-api</module>
-        <module>dubbo-redis</module>
+        <module>redis</module>
+        <module>consumer</module>
+        <module>producer</module>
+        <module>netty</module>
+        <module>zookeeper</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

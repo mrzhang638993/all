@@ -2,12 +2,12 @@ package com.self.study.zookeeper.vo;
 
 import java.io.Serializable;
 
-public class User  implements Serializable {
+public class User implements Serializable {
 
 
-    private   int  age;
+    private int age;
 
-    private   String name ;
+    private String name;
 
 
     public int getAge() {
