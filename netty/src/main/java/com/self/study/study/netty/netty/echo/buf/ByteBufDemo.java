@@ -2,12 +2,12 @@ package com.self.study.study.netty.netty.echo.buf;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.buffer.UnpooledByteBufAllocator;
 
 import java.util.Arrays;
 
 public class ByteBufDemo {
 
+    //  bytebuf的get以及相关的set方法对应的都是随机读取数据操作的。
     public static void main(String[] args) {
         // 初始化256字节的bytebuf,对应的是非池化的bytebuf的
         ByteBuf buffer = Unpooled.buffer(10);
