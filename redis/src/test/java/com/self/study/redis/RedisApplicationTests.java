@@ -23,17 +23,17 @@ public class RedisApplicationTests {
 
 
     @Autowired
-    private RedisTemplate  redisTemplate;
+    private RedisTemplate redisTemplate;
 
     @Test
     public void testValueOperation() {
         //stringRedisTemplate.opsForValue().set("good", "boy");
       /*  ValueOperations<String, String> stringStringValueOperations = stringRedisTemplate.opsForValue();
         stringStringValueOperations.set("test","good   boy  test");*/
-      User   user = new User();
-      user.setName("zhangchenglong");
-      user.setAge(19);
-       redisTemplate.opsForHash().put("user","userInput",user);
+        User user = new User();
+        user.setName("zhangchenglong");
+        user.setAge(19);
+        redisTemplate.opsForHash().put("user", "userInput", user);
         User user1 = (User) redisTemplate.opsForHash().get("user", "userInput");
         System.out.println(user.toString());
     }
