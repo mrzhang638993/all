@@ -35,7 +35,7 @@ public class ZookeeperApplicationTests {
                     try {
                         lock.acquire();
                         result++;
-                        System.out.println("获取到了共享锁的" + result + "########");
+                        System.out.println("获取到了互斥锁:{}" + result );
                     } catch (Exception e) {
                         e.printStackTrace();
                     } finally {
