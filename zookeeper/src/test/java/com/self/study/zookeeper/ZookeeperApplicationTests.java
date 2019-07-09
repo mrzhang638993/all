@@ -71,7 +71,6 @@ public class ZookeeperApplicationTests {
                 public void run() {
                     try {
                         improveLock.lock();
-
                         result.getAndIncrement();
                         System.out.println("获取到了互斥锁:{}" + result.get() );
                     } catch (Exception e) {

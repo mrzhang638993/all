@@ -11,6 +11,7 @@ import org.I0Itec.zkclient.exception.ZkNodeExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//  作用不明确的，需要重新操作和实现管理的。
 public class DistributeLock implements Lock {
 	private static Logger logger = LoggerFactory.getLogger(DistributeLock.class);
 
