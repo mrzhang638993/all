@@ -22,7 +22,7 @@ public class ZookerperConfig {
     @Bean
     public CuratorFramework curatorFramework() {
         CuratorFramework curatorFramework = CuratorFrameworkFactory.builder()
-                .connectString("localhost:2181").connectionTimeoutMs(12000)
+                .connectString("localhost:2181").connectionTimeoutMs(120000000)
                 .retryPolicy(new RetryNTimes(2, 5))
                 .build();
         //  必须要启动start ，否则存在异常的。状态无法检测的。
