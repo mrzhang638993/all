@@ -81,8 +81,8 @@ public class RedissonService {
     }
 
     //  获取消息的topic
-    public <M> RTopic<M> getRTopic(String objectName) {
+    /*public <M> RTopic<M> getRTopic(String objectName) {
         RTopic<M> topic = redissonClient.getTopic(objectName);
         return   topic;
-    }
+    }*/
 }

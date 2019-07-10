@@ -3,6 +3,7 @@ package com.self.study.redis.config;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.redisson.config.TransportMode;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -88,11 +89,28 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Bean
    // @ConditionalOnProperty({"spring.redis.host","spring.redis.port"})
     //@ConditionalOnClass(Config.class)
-    public RedissonClient redissonClient(){
-        Config  config= new Config();
-         config.useSingleServer().setAddress("redis://" + host + ":" + port);
+    public RedissonClient redissonClient(Config  config){
+       /* Config  config= new Config();
+         config.useSingleServer().setAddress("redis://" + host + ":" + port);*/
         RedissonClient redissonClient = Redisson.create(config);
         return   redissonClient;
     }
+
+    @Bean
+    public   Config  config(){
+        Config  config= new Config();
+        config.setTransportMode(TransportMode.EPOLL);
+        config.useSingleServer().setAddress("redis://localhost:6379");
+       // config.useSingleServer().set( "redis://"+host + ":" + port);
+        return   config;
+    }
+
+
+   /* @Bean
+    public   Redisson  redisson(Config  config){
+        Redisson  redisson= new Redisson(config);
+        return   redisson;
+    }*/
+
 
 }

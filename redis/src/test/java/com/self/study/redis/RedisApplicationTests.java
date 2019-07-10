@@ -49,17 +49,17 @@ public class RedisApplicationTests {
 
     @Test
     public  void   testRedisson(){
-       RBucket<String> rBucket = redissonService.getRBucket("/user");
+       RBucket<String> rBucket = redissonService.getRBucket("user");
         System.out.println(rBucket.get());
 
     }
 
     @Test
     public   void   testCreate(){
-        Config config= new Config();
-        config.useSingleServer().setAddress("redis://" + "localhost" + ":" + 6379);
+      /*  Config config= new Config();
+        config.useSingleServer().setAddress("redis://" + host + ":" + 6379);
         RedissonClient redissonClient = Redisson.create(config);
-        System.out.println(redissonClient);
+        System.out.println(redissonClient);*/
     }
 
 }

@@ -41,13 +41,31 @@
             <artifactId>redisson</artifactId>
             <version>3.9.0</version>
         </dependency>
+       <!-- <dependency>
+            <groupId>com.github.linux-china</groupId>
+            <artifactId>spring-boot-starter-redisson</artifactId>
+            <version>3.3.2</version>
+        </dependency>-->
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-data-20</artifactId>
-            <version>3.9.0</version>
+            <groupId>com.github.drtrang</groupId>
+            <artifactId>redisson-spring-boot2-starter</artifactId>
+            <version>1.2.5</version>
         </dependency>
 
+       <!--  <dependency>
+             <groupId>org.redisson</groupId>
+             <artifactId>redisson-spring-data-20</artifactId>
+             <version>3.9.0</version>
+         </dependency>-->
+
     </dependencies>
+
+    <!--<repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>-->
 
     <build>
         <plugins>
