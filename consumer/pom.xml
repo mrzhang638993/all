@@ -77,11 +77,11 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
+      <!--  <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.13</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.101tec</groupId>

@@ -71,11 +71,11 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.13</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.101tec</groupId>
