@@ -1,12 +1,13 @@
 package com.self.study.redis.config;
 
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
@@ -18,7 +19,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @EnableCaching
-@Profile("spring.redis")
+@Profile("dev")
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Value("spring.redis.host")
@@ -79,6 +80,19 @@ public class RedisConfig extends CachingConfigurerSupport {
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig();
         RedisCacheManager cacheManager = new RedisCacheManager(redisCacheWriter, redisCacheConfiguration);
         return cacheManager;
+    }
+
+
+    // 返回redisson的config 配置类信息
+
+    @Bean
+   // @ConditionalOnProperty({"spring.redis.host","spring.redis.port"})
+    //@ConditionalOnClass(Config.class)
+    public RedissonClient redissonClient(){
+        Config  config= new Config();
+         config.useSingleServer().setAddress("redis://" + host + ":" + port);
+        RedissonClient redissonClient = Redisson.create(config);
+        return   redissonClient;
     }
 
 }

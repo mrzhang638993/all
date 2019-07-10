@@ -1,8 +1,13 @@
 package com.self.study.redis;
 
 import com.self.study.redis.bo.User;
+import com.self.study.service.RedissonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.redisson.Redisson;
+import org.redisson.api.RBucket;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -37,4 +42,24 @@ public class RedisApplicationTests {
         User user1 = (User) redisTemplate.opsForHash().get("user", "userInput");
         System.out.println(user.toString());
     }
+
+
+   @Autowired
+    private RedissonService  redissonService;
+
+    @Test
+    public  void   testRedisson(){
+       RBucket<String> rBucket = redissonService.getRBucket("/user");
+        System.out.println(rBucket.get());
+
+    }
+
+    @Test
+    public   void   testCreate(){
+        Config config= new Config();
+        config.useSingleServer().setAddress("redis://" + "localhost" + ":" + 6379);
+        RedissonClient redissonClient = Redisson.create(config);
+        System.out.println(redissonClient);
+    }
+
 }
