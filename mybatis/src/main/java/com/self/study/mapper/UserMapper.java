@@ -1,13 +1,13 @@
-package com.self.study.mybatis.mapper;
+package com.self.study.mapper;
 
 
-import com.self.study.mybatis.domain.User;
+import com.self.study.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
  * Created by zl on 2015/8/27.
  */
-
+@Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 

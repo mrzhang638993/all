@@ -1,4 +1,4 @@
-package com.self.study.mybatis.config;
+package com.self.study.config;
 
 import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
 import com.mangofactory.swagger.models.dto.ApiInfo;

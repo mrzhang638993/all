@@ -1,9 +1,13 @@
-package com.self.study.mybatis.domain;
+package com.self.study.domain;
+
+import org.springframework.stereotype.Service;
+
+import java.io.Serializable;
 
 /**
  * Created by zl on 2015/8/27.
  */
-public class User {
+public class User implements Serializable {
     private Integer id;
 
     private String username;
@@ -42,5 +46,15 @@ public class User {
 
     public void setMake(Boolean make) {
         this.make = make;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", make=" + make +
+                '}';
     }
 }

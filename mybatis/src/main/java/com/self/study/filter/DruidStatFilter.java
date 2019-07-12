@@ -1,4 +1,4 @@
-package com.self.study.mybatis.filter;
+package com.self.study.filter;
 
 
 import com.alibaba.druid.support.http.WebStatFilter;

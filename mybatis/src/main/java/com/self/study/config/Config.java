@@ -1,4 +1,4 @@
-package com.self.study.mybatis.config;
+package com.self.study.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.jdbc.DataSourceBuilder;
