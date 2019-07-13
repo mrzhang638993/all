@@ -4,6 +4,8 @@ package com.self.study.service.impl;
 import com.self.study.mapper.UserMapper;
 import com.self.study.domain.User;
 import com.self.study.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,7 @@ import java.util.Random;
 @Transactional
 public class UserServiceImpl  implements UserService {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
     private UserMapper userMapper;
 
@@ -47,8 +50,13 @@ public class UserServiceImpl  implements UserService {
              user.setUsername("zhangchenglong");
              list1.add(user);
          }
-         //userMapper.doBatchInsert(list1);
-        userMapper.doBatchInsert(list1);
+        try {
+            userMapper.doBatchInsert(list1);
+        }catch (Exception e){
+            logger.info(((User)list1.get(0)).getId()+"持续到"+((User)list1.get(list1.size()-1)).getId()+"插入数据失败");
+            throw new RuntimeException(e.getMessage());
+        }
+
          return list1.size();
     }
 }
