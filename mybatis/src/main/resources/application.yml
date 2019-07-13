@@ -64,3 +64,9 @@ spring:
       connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 mybatis:
   mapper-locations: com/self/study/mapper/impl/*.xml,mybatis/*.xml
+  # 对应的是生成动态sql对象使用的，没有的话，底层是无法使用
+mapper:
+  mappers: com.self.study.plugin.BaseMapper
+  not-empty: false
+  identity: MYSQL
+
