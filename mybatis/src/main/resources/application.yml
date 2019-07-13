@@ -62,6 +62,24 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
       filter: stat,wall,log4j
       connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  freemarker:
+    allow-request-override: false
+    allow-session-override: false
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: true
+    prefer-file-system-access: true
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    settings:
+      template_update_delay: 0
+      default_encoding: UTF-8
+      classic_compatible: true
 mybatis:
   mapper-locations: com/self/study/mapper/impl/*.xml,mybatis/*.xml
   # 对应的是生成动态sql对象使用的，没有的话，底层是无法使用
