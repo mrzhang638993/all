@@ -83,4 +83,13 @@
       make = #{make,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <insert id="doBatchInsert">
+    insert into tbuser ( <include refid="Base_Column_List" /> )
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (#{item.id},#{item.username},#{item.password},#{item.make})
+    </foreach>
+  </insert>
+
 </mapper>
