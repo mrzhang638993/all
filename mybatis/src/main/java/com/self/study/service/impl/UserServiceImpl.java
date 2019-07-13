@@ -29,17 +29,17 @@ public class UserServiceImpl  implements UserService {
     @Override
     public User findUserById(Integer id) {
         User  user= new User();
-        user.setId(2);
+      /*  user.setId(2);
         user.setMake(true);
         user.setPassword("mrzhang");
         user.setUsername("good");
-        int insert = userMapper.insert(user);
+        int insert = userMapper.insert(user);*/
         return   user;
     }
 
     @Override
     public Integer batchInsert(List<User> list) {
-         List  list1= new ArrayList();
+    /*     List  list1= new ArrayList();
          for (int i=0;i<1000;i++){
              User user= new User();
              Random  random= new Random();
@@ -55,8 +55,8 @@ public class UserServiceImpl  implements UserService {
         }catch (Exception e){
             logger.info(((User)list1.get(0)).getId()+"持续到"+((User)list1.get(list1.size()-1)).getId()+"插入数据失败");
             throw new RuntimeException(e.getMessage());
-        }
+        }*/
 
-         return list1.size();
+         return 0;
     }
 }
