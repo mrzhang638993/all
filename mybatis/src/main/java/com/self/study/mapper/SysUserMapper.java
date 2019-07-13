@@ -37,7 +37,7 @@ import java.util.List;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-//@Repository
+@Repository
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
     List<SysUser> findPageBreakByCondition(UserConditionVO vo);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="co.self.study.mapper.SysRoleMapper">
+<mapper namespace="com.self.study.mapper.SysRoleMapper">
 	<resultMap id="rm" type="com.self.study.domain.SysRole">
 		<result property="id" jdbcType="BIGINT" column="id"/>
 		<result property="name" jdbcType="VARCHAR" column="name"/>

@@ -1,13 +1,16 @@
 package com.self.study.mapper;
 
 
+
 import com.self.study.domain.User;
+
 
 import java.util.List;
 
 /**
  * Created by zl on 2015/8/27.
  */
+
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);

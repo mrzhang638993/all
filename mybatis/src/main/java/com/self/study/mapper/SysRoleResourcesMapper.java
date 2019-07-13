@@ -34,6 +34,6 @@ import org.springframework.stereotype.Repository;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-//@Repository
+@Repository
 public interface SysRoleResourcesMapper extends BaseMapper<SysRoleResources> {
 }
