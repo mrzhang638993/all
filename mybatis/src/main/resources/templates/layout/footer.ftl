@@ -24,10 +24,10 @@
 <script src="https://cdn.bootcss.com/zTree.v3/3.5.29/js/jquery.ztree.core.min.js"></script>
 <script src="https://cdn.bootcss.com/zTree.v3/3.5.29/js/jquery.ztree.excheck.min.js"></script>
 
-<script src="/static/assets/js/validator.js"></script>
-<script src="/static/assets/js/jquery-form.js"></script>
-<script src="/static/assets/js/zyd.tool.js"></script>
-<script src="/static/assets/js/zhyd.core.js"></script>
-<script src="/static/assets/js/zyd.table.js"></script>
+<script src="/assets/js/validator.js"></script>
+<script src="/assets/js/jquery-form.js"></script>
+<script src="/assets/js/zyd.tool.js"></script>
+<script src="/assets/js/zhyd.core.js"></script>
+<script src="/assets/js/zyd.table.js"></script>
 </body>
 </html>

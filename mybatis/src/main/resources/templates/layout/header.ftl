@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Shiro权限管理系统</title>
-    <link href="/static/assets/images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
     <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/zTree.v3/3.5.29/css/metroStyle/metroStyle.min.css" rel="stylesheet">
 
-    <link href="/static/assets/css/zhyd.core.css" rel="stylesheet">
+    <link href="/assets/css/zhyd.core.css" rel="stylesheet">
 </head>
 <body class="nav-md">
 <div class="container body">
@@ -32,7 +32,7 @@
                 <div class="clearfix"></div>
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="/static/assets/images/loading.gif" alt="..." class="img-circle profile_img">
+                        <img src="/assets/images/loading.gif" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>早上好,</span>
