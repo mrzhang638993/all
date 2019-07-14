@@ -155,6 +155,20 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.arronlong/httpclientutil -->
+        <!--非常完善的httpclient使用方案信息。-->
+       <!-- <dependency>
+            <groupId>com.arronlong</groupId>
+            <artifactId>httpclientutil</artifactId>
+            <version>1.0.4</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
