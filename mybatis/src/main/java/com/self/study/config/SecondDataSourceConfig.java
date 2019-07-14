@@ -13,6 +13,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 import javax.sql.DataSource;
 
+/*
 @Configuration
 @MapperScan(basePackages={"com.self.study.mapper"})
 public class SecondDataSourceConfig {
@@ -58,3 +59,4 @@ public class SecondDataSourceConfig {
         return sessionFactory.getObject();
     }
 }
+*/
