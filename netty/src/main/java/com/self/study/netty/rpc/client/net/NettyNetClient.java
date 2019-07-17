@@ -34,7 +34,7 @@ public class NettyNetClient implements NetClientV2 {
             CompletableFuture<Response> future = new CompletableFuture();
             futureMap.put(data.getRequestId(), future);
 
-            // 写入数据
+            //
             channel.writeAndFlush(data);
             // 获取返回结果
             return future.get();
