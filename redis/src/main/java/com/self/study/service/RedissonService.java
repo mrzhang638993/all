@@ -108,9 +108,9 @@ public class RedissonService {
         System.out.println("从缓存中删除数据信息");
     }
 
-    @CachePut(cacheManager = "cacheManager",value = "cache-1",key="#userName")
-    public  void  testInput(){
-        System.out.println("数据库执行了更新操作，对应的数据信息如下");
+    @CachePut(cacheManager = "cacheManager",value = "cache-1",key="#user.userName")
+    public  void  testInput(User  user){
+        System.out.println("数据库执行了更新操作，对应的数据信息如下"+user.toString());
     }
 
 

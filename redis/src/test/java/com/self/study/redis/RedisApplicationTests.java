@@ -166,7 +166,10 @@ public class RedisApplicationTests {
 
     @Test
     public   void   testInput(){
-
+        User  user= new User();
+        user.setAge(20);
+        user.setName("zhangchenglong");
+        redissonService.testInput(user);
     }
 
 }
