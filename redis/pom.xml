@@ -58,6 +58,13 @@
              <version>3.9.0</version>
          </dependency>-->
 
+        <!--使用guava本地缓存-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>25.0-jre</version>
+        </dependency>
+
     </dependencies>
 
     <!--<repositories>

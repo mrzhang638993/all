@@ -19,6 +19,7 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
+//  开启了spring的缓存功能实现的
 @EnableCaching
 @Profile("dev")
 public class RedisConfig extends CachingConfigurerSupport {
