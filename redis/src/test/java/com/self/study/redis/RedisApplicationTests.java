@@ -172,4 +172,8 @@ public class RedisApplicationTests {
         redissonService.testInput(user);
     }
 
+    @Test
+    public  void   testConsumer(){
+        redissonService.testConsumer("mrzhang");
+    }
 }

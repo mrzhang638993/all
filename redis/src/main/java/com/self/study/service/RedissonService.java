@@ -134,8 +134,12 @@ public class RedissonService {
 */
 
     @CustomerAnno(key = "#userName")
-    public  void  test(String  userName){
+    public  User  testConsumer(String  userName){
         //  userDao.findByUserName(userName);
-
+        User user = null;
+        user = new User();
+        user.setName(userName);
+        System.out.println("从数据库中读取到值：" + user);
+        return user;
     }
 }
