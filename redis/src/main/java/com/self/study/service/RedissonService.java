@@ -2,6 +2,7 @@ package com.self.study.service;
 
 
 import com.self.study.redis.bo.User;
+import com.self.study.spring.CustomerAnno;
 import org.redisson.api.RedissonClient;
 import org.redisson.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RedissonService {
+
 
 
     @Autowired
@@ -84,34 +86,56 @@ public class RedissonService {
         RCountDownLatch countDownLatch = redissonClient.getCountDownLatch(objectName);
         return   countDownLatch;
     }
-
     //  获取消息的topic
    public    RTopic getRTopic(String objectName) {
         RTopic  topic = redissonClient.getTopic(objectName);
         return   topic;
     }
-
-
     @Autowired
     private RedisTemplate redisTemplate;
-
     @Cacheable(cacheManager = "cacheManager",value = "cache-1",key="#userName")
       public  void   testCacheInput(String userName ){
-        User user= new User();
+       /* User user= new User();
         user.setAge(18);
-        user.setName(userName);
-        System.out.println(user.toString());
+        user.setName(userName);*/
+      //  核心的逻辑是这个的  //  userDao.findByUserName(userName);
+       /* System.out.println(user.toString());*/
       }
-
     @CacheEvict(cacheManager = "cacheManager",value = "cache-1",key="#userName")
     public  void  testDelete(String userName){
+        //  userDao.deleteByUserName(userName);
         System.out.println("从缓存中删除数据信息");
     }
-
-    @CachePut(cacheManager = "cacheManager",value = "cache-1",key="#user.userName")
+    @CachePut(cacheManager = "cacheManager",value = "cache-1",key="#user.userName",condition = "#user.userName!=null")
     public  void  testInput(User  user){
+        //  userDao.insert(user);
         System.out.println("数据库执行了更新操作，对应的数据信息如下"+user.toString());
     }
 
+    /*
+    @CachePut(value = "user", key = "#user.username")
+    public void save(User user) {
+        userDao.save(user);
+    }
+    @Cacheable(value = "user", key = "#id")
+    public User findById(int id) {
+        User user = userDao.findById(id);
+        return user;
+    }
+    */
+/**
+     * 查询结果不为空 才放进缓存 unless
+     * @return
+     *//*
+    @Cacheable(value = "defaultCache",unless = "#result==null")
+    public List<User> listAll() {
+        return userDao.listAll();
+    }
+*/
 
+    @CustomerAnno(key = "#userName")
+    public  void  test(String  userName){
+        //  userDao.findByUserName(userName);
+
+    }
 }
