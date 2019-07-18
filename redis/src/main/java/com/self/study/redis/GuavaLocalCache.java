@@ -3,7 +3,6 @@ package com.self.study.redis;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
 import com.self.study.redis.bo.User;
 
 import java.util.concurrent.TimeUnit;
