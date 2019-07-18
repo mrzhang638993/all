@@ -1,5 +1,6 @@
 package com.self.study.redis;
 
+import com.self.study.redis.bo.User;
 import com.self.study.service.RedissonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,6 +8,8 @@ import org.redisson.api.*;
 import org.redisson.api.listener.MessageListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -150,4 +153,20 @@ public class RedisApplicationTests {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public  void  testCacheInput(){
+        redissonService.testCacheInput("mrzhang");
+    }
+
+    @Test
+    public  void testDelete( ){
+        redissonService.testDelete("mrzhang");
+    }
+
+    @Test
+    public   void   testInput(){
+
+    }
+
 }

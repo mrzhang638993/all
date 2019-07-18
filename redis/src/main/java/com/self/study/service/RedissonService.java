@@ -1,9 +1,14 @@
 package com.self.study.service;
 
 
+import com.self.study.redis.bo.User;
 import org.redisson.api.RedissonClient;
 import org.redisson.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 
@@ -85,4 +90,28 @@ public class RedissonService {
         RTopic  topic = redissonClient.getTopic(objectName);
         return   topic;
     }
+
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Cacheable(cacheManager = "cacheManager",value = "cache-1",key="#userName")
+      public  void   testCacheInput(String userName ){
+        User user= new User();
+        user.setAge(18);
+        user.setName(userName);
+        System.out.println(user.toString());
+      }
+
+    @CacheEvict(cacheManager = "cacheManager",value = "cache-1",key="#userName")
+    public  void  testDelete(String userName){
+        System.out.println("从缓存中删除数据信息");
+    }
+
+    @CachePut(cacheManager = "cacheManager",value = "cache-1",key="#userName")
+    public  void  testInput(){
+        System.out.println("数据库执行了更新操作，对应的数据信息如下");
+    }
+
+
 }
