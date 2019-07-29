@@ -41,50 +41,17 @@
             <artifactId>redisson</artifactId>
             <version>3.9.0</version>
         </dependency>
-       <!-- <dependency>
-            <groupId>com.github.linux-china</groupId>
-            <artifactId>spring-boot-starter-redisson</artifactId>
-            <version>3.3.2</version>
-        </dependency>-->
         <dependency>
             <groupId>com.github.drtrang</groupId>
             <artifactId>redisson-spring-boot2-starter</artifactId>
             <version>1.2.5</version>
         </dependency>
-
-       <!--  <dependency>
-             <groupId>org.redisson</groupId>
-             <artifactId>redisson-spring-data-20</artifactId>
-             <version>3.9.0</version>
-         </dependency>-->
-
         <!--使用guava本地缓存-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>25.0-jre</version>
         </dependency>
-        <!--加入spring的aop功能-->
-       <!-- <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>5.1.8.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>5.1.8.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.1.8.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>5.1.8.RELEASE</version>
-        </dependency>-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
@@ -96,6 +63,10 @@
             <version>1.8.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
 
 
     </dependencies>
