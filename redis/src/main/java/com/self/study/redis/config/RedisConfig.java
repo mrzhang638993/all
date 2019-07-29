@@ -1,5 +1,8 @@
 package com.self.study.redis.config;
 
+import com.google.common.base.Charsets;
+import com.google.common.hash.BloomFilter;
+import com.google.common.hash.Funnels;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
@@ -27,7 +30,6 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Value("spring.redis.host")
     private   String   host;
 
-
     @Value("spring.redis.port")
     private   int   port;
 
@@ -45,7 +47,6 @@ public class RedisConfig extends CachingConfigurerSupport {
         //  设置key-value的序列化方式的
         redisTemplate.setKeySerializer(stringRedisSerializer);
         redisTemplate.setValueSerializer(stringRedisSerializer);
-
         return   redisTemplate;
     }
 
@@ -64,7 +65,6 @@ public class RedisConfig extends CachingConfigurerSupport {
         // hash类型的序列化放肆
         redisTemplate.setHashKeySerializer(jdkSerialization);
         redisTemplate.setHashValueSerializer(jdkSerialization);
-
         return   redisTemplate;
     }
 
@@ -106,12 +106,9 @@ public class RedisConfig extends CachingConfigurerSupport {
         return   config;
     }
 
-
-   /* @Bean
-    public   Redisson  redisson(Config  config){
-        Redisson  redisson= new Redisson(config);
-        return   redisson;
-    }*/
-
-
+    //  创建默认的布隆过滤器,对应的可以使用相关的布隆过滤器的实现逻辑和体现
+    @Bean
+    public BloomFilter bloomFilter(){
+           return BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8), 100000,0.3);
+    }
 }
