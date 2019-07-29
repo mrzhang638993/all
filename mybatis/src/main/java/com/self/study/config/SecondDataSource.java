@@ -4,13 +4,13 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Qualifier;
-import  tk.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,15 +18,12 @@ import java.util.List;
 import java.util.Properties;
 
 @Configuration
-//@ImportResource("jdbc.properties")
-public class DataSourceConfig {
+public class SecondDataSource   {
 
-
-    //  分页插件配置
-    @Bean
-    public PageHelper  pageHelper(){
+    @Bean(name="newPager")
+    public PageHelper pageHelper(){
         PageHelper  pageHelper= new PageHelper();
-        Properties  properties= new Properties();
+        Properties properties= new Properties();
         properties.setProperty("dialect","mysql");
         properties.setProperty("reasonable","true");
         properties.setProperty("offsetAsPageNum","true");
@@ -36,12 +33,12 @@ public class DataSourceConfig {
         return   pageHelper;
     }
 
-    @Bean(name="mainPrimary")
-    @Primary
-    public DruidDataSource druidDataSource() throws SQLException {
+
+    @Bean(name="secondPrimary")
+    public DruidDataSource getSecondPrimary()  throws SQLException {
         DruidDataSource  druidDataSource= new DruidDataSource();
         druidDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        druidDataSource.setUrl("jdbc:mysql://localhost:3306/db_2?useUnicode=true&characterEncoding=utf8");
+        druidDataSource.setUrl("jdbc:mysql://localhost:3306/db_1?useUnicode=true&characterEncoding=utf8");
         druidDataSource.setUsername("root");
         druidDataSource.setPassword("root");
         druidDataSource.setFilters("stat");
@@ -63,12 +60,13 @@ public class DataSourceConfig {
         return   druidDataSource;
     }
 
-    @Bean(name = "sqlSessionFactoryBean")
-    @Primary
-    public SqlSessionFactoryBean  sqlSessionFactoryBean(@Qualifier("mainPrimary") DruidDataSource  druidDataSource){
+
+
+    @Bean(name = "secondSqlSessionFactoryBean")
+    public SqlSessionFactoryBean  sqlSessionFactoryBean(@Qualifier("secondPrimary") DruidDataSource druidDataSource){
         SqlSessionFactoryBean  sql= new SqlSessionFactoryBean();
         sql.setDataSource(druidDataSource);
-       // Resource   resource= new ClassPathResource("classpath:mybatis/*.xml");
+        // Resource   resource= new ClassPathResource("classpath:mybatis/*.xml");
         //sql.setConfigLocation(resource);
         Resource[] list= new Resource[2];
         Resource   resource_1=new ClassPathResource("mybatis/UserEntityMapper.xml");
@@ -81,17 +79,13 @@ public class DataSourceConfig {
         return   sql;
     }
 
-    @Bean("mapperScannerConfigurer")
-    @Primary
-    public MapperScannerConfigurer mapperScannerConfigurer(@Qualifier("sqlSessionFactoryBean") SqlSessionFactoryBean  sqlSessionFactoryBean){
+    @Bean(name="secondMapperScannerConfigurer")
+    public MapperScannerConfigurer mapperScannerConfigurer(@Qualifier("secondSqlSessionFactoryBean") SqlSessionFactoryBean sqlSessionFactoryBean){
         MapperScannerConfigurer  mapperScannerConfigurer= new  MapperScannerConfigurer();
         mapperScannerConfigurer.setBasePackage("com.self.study.mapper");
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
+        mapperScannerConfigurer.setSqlSessionFactoryBeanName("secondSqlSessionFactoryBean");
         return   mapperScannerConfigurer;
 
     }
-
-
-
 
 }
