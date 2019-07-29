@@ -1,27 +1,24 @@
 package com.self.study;
 
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.self.study.domain.Country;
+
 import com.self.study.domain.OrderEntity;
 import com.self.study.domain.UserEntity;
 import com.self.study.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.crypto.KeyGenerator;
+import java.util.Random;
+import java.util.UUID;
+//import tk.mybatis.spring.annotation.MapperScan;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@MapperScan("com.self.study.mapper")
 public class MybatisApplicationTests {
 
 
@@ -51,7 +48,7 @@ public class MybatisApplicationTests {
 
     @Test
     public     void  testUserService(){
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < 100; i++) {
             UserEntity user = service.getUser(i);
             if (user != null) {
                 System.out.println(user);
@@ -68,6 +65,9 @@ public class MybatisApplicationTests {
                 System.out.println(order);
             } else {
                 order = new OrderEntity("NO-" + i);
+                Random  random= new Random();
+                int key = random.nextInt(1000000);
+                order.setOrderId(key);
                 service.addOrder(order);
             }
         }

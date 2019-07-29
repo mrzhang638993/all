@@ -3,20 +3,14 @@ package com.self.study.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.mapper.MapperScannerConfigurer;
+import  tk.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +40,7 @@ public class DataSourceConfig {
     public DruidDataSource druidDataSource() throws SQLException {
         DruidDataSource  druidDataSource= new DruidDataSource();
         druidDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        druidDataSource.setUrl("dbc:mysql://localhost:3306/db_1?useUnicode=true&characterEncoding=utf8");
+        druidDataSource.setUrl("jdbc:mysql://localhost:3306/db_2?useUnicode=true&characterEncoding=utf8");
         druidDataSource.setUsername("root");
         druidDataSource.setPassword("root");
         druidDataSource.setFilters("stat");
@@ -68,13 +62,21 @@ public class DataSourceConfig {
         return   druidDataSource;
     }
 
-    @Bean
+    @Bean(name = "sqlSessionFactoryBean")
     @ConditionalOnClass(DruidDataSource.class)
     public SqlSessionFactoryBean  sqlSessionFactoryBean(DruidDataSource  druidDataSource){
         SqlSessionFactoryBean  sql= new SqlSessionFactoryBean();
         sql.setDataSource(druidDataSource);
-        Resource   resource= new ClassPathResource("");
-        sql.setConfigLocation(resource);
+       // Resource   resource= new ClassPathResource("classpath:mybatis/*.xml");
+        //sql.setConfigLocation(resource);
+        Resource[] list= new Resource[2];
+        Resource   resource_1=new ClassPathResource("mybatis/UserEntityMapper.xml");
+        Resource   resource_2=new ClassPathResource("mybatis/OrderEntityMapper.xml");
+        list[0]=resource_1;
+        list[1]=resource_2;
+        //Resource[0]=resource_1;
+        //Resource[1]=resource_2;
+        sql.setMapperLocations(list);
         return   sql;
     }
 
@@ -83,7 +85,7 @@ public class DataSourceConfig {
     public MapperScannerConfigurer mapperScannerConfigurer(SqlSessionFactoryBean  sqlSessionFactoryBean){
         MapperScannerConfigurer  mapperScannerConfigurer= new  MapperScannerConfigurer();
         mapperScannerConfigurer.setBasePackage("com.self.study.mapper");
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName("org.mybatis.spring.SqlSessionFactoryBean");
+        mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
         return   mapperScannerConfigurer;
 
     }

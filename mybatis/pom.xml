@@ -79,6 +79,11 @@
             <artifactId>mapper</artifactId>
             <version>3.5.3</version>
         </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring</artifactId>
+            <version>1.1.0</version>
+        </dependency>
 
     </dependencies>
 

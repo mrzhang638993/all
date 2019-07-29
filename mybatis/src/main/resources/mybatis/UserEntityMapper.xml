@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -10,4 +10,17 @@
         <id column="D_USER_ID" property="userId" jdbcType="INTEGER"/>
         <result column="D_USER_NAME" property="userName" jdbcType="VARCHAR"/>
     </resultMap>
+
+    <sql id="Base_Column_List">
+         D_USER_ID,D_USER_NAME
+    </sql>
+
+   <!-- <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer">
+        select
+        <include refid="Base_Column_List" />
+        from
+        t_user
+        where
+        D_USER_ID = #{userId}
+    </select>-->
 </mapper>

@@ -1,11 +1,33 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.self.study.domain.UserEntityMapper">
-    <resultMap id="BaseResultMap" type="com.self.study.domain.UserEntity">
+<mapper namespace="com.self.study.mapper.OrderEntityMapper">
+    <resultMap id="BaseResultMap" type="com.self.study.domain.OrderEntity">
         <!--
           WARNING - @mbggenerated
         -->
-        <id column="D_USER_ID" property="userId" jdbcType="INTEGER"/>
-        <result column="D_USER_NAME" property="userName" jdbcType="VARCHAR"/>
+        <id column="D_ORDER_ID" property="orderId" jdbcType="INTEGER"/>
+        <result column="D_ORDER_NO" property="orderNo" jdbcType="VARCHAR"/>
     </resultMap>
+
+
+    <!--<insert id="insertSelective" parameterType="com.self.study.domain.OrderEntity" >
+        insert into t_order
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="orderId != null" >
+                D_ORDER_ID,
+            </if>
+            <if test="orderNo != null" >
+                D_ORDER_NO,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="orderId != null" >
+                #{orderId,jdbcType=INTEGER},
+            </if>
+            <if test="orderNo != null" >
+                #{orderNo,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>-->
+
 </mapper>
