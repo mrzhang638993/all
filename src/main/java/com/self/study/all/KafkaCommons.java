@@ -1,4 +1,4 @@
-package com.self.study.study.all;
+package com.self.study.all;
 
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

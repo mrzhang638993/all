@@ -1,4 +1,4 @@
-package com.self.study.study.all;
+package com.self.study.all;
 
 
 import java.text.SimpleDateFormat;
