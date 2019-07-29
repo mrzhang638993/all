@@ -6,11 +6,12 @@ import java.util.*;
 
 public class TestCollection {
 
-    //  测试java中集合类的使用和操作信息
+    //  测试java中集合类的使用和操作信息,大多数的数据的这种问题的话,一般的可以根据相关的collections就可以获取到相关的元素的
     public static void main(String[] args) {
         TestCollection testCollection = new TestCollection();
        // testCollection.testTreeMap();
-        testCollection.testSortedSet();
+       // testCollection.testSortedSet();
+        testCollection.testSynSet();
     }
 
     public   void   testTreeMap() {
@@ -42,4 +43,17 @@ public class TestCollection {
                 System.out.println(x);
             });
         }
+
+        public   void   testSynSet(){
+            Set   set= new HashSet<>();
+            set.add("good");
+            set.add("morning");
+            set.add("tonight");
+            //  返回线程安全的set
+            Set sets = Collections.synchronizedSet(set);
+            sets.forEach(x->{
+                System.out.println(x);
+            });
+        }
+
 }
