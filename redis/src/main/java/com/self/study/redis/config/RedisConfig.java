@@ -20,6 +20,13 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import redis.clients.jedis.*;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 
 @Configuration
 //  开启了spring的缓存功能实现的
@@ -52,7 +59,6 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
     public RedisTemplate redisTemplate(RedisConnectionFactory   redisConnectionFactory){
-
         RedisTemplate  redisTemplate= new RedisTemplate();
         // 获取redis连接
         redisTemplate.setConnectionFactory(redisConnectionFactory);
@@ -86,7 +92,6 @@ public class RedisConfig extends CachingConfigurerSupport {
 
 
     // 返回redisson的config 配置类信息
-
     @Bean
    // @ConditionalOnProperty({"spring.redis.host","spring.redis.port"})
     //@ConditionalOnClass(Config.class)
@@ -111,4 +116,43 @@ public class RedisConfig extends CachingConfigurerSupport {
     public BloomFilter bloomFilter(){
            return BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8), 100000,0.3);
     }
+
+    //  对应的还需要相关的哨兵的配置信息.需要关注一下
+    @Bean
+    public JedisCluster jedisCluster(){
+        Set set=  new HashSet<>();
+        Set<HostAndPort> CLUSTER_HOST_AND_PORTS = new HashSet(){{
+            add(new HostAndPort("127.0.0.1", 6380));
+            add(new HostAndPort("127.0.0.1", 6381));
+            add(new HostAndPort("127.0.0.1", 6382));
+            add(new HostAndPort("127.0.0.1", 6383));
+            add(new HostAndPort("127.0.0.1", 6384));
+            add(new HostAndPort("127.0.0.1", 6385));
+        }};
+        JedisCluster  jedisCluster= new JedisCluster(CLUSTER_HOST_AND_PORTS);
+        return  jedisCluster;
+    }
+
+    // 配置对应的redis分片集群的配置信息
+    @Bean
+    public ShardedJedisPool shardedJedisPool(){
+        JedisPoolConfig  jedisPoolConfig= new JedisPoolConfig();
+        //  下面是JedisShardInfo 分片集群信息
+        List<JedisShardInfo> shards = new ArrayList<>();
+        JedisShardInfo jedisShardInfo_1=  new JedisShardInfo("127.0.0.1",6380,3000);
+        JedisShardInfo jedisShardInfo_2=  new JedisShardInfo("127.0.0.1",6381,3000);
+        JedisShardInfo jedisShardInfo_3=  new JedisShardInfo("127.0.0.1",6382,3000);
+        JedisShardInfo jedisShardInfo_4=  new JedisShardInfo("127.0.0.1",6383,3000);
+        JedisShardInfo jedisShardInfo_5=  new JedisShardInfo("127.0.0.1",6384,3000);
+        JedisShardInfo jedisShardInfo_6=  new JedisShardInfo("127.0.0.1",6385,3000);
+        shards.add(jedisShardInfo_1);
+        shards.add(jedisShardInfo_2);
+        shards.add(jedisShardInfo_3);
+        shards.add(jedisShardInfo_4);
+        shards.add(jedisShardInfo_5);
+        shards.add(jedisShardInfo_6);
+        return  new ShardedJedisPool(jedisPoolConfig,shards);
+    }
+
+
 }
