@@ -1,8 +1,0 @@
-mysql主从加上读写分离创建（centos7）：
-1.下载相关的mysql服务器安装软件
-https://dev.mysql.com/downloads/file/?id=485707
-
-2.上传到指定的安装目录，创建角色病解压文件
- tar  -xf  mysql-5.7.26-linux-glibc2.12-x86_64.tar.gz
-
-3.更改主节点的配置文件并启动服务
