@@ -9,6 +9,8 @@ import com.self.study.utils.DBContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl   implements UserService {
 
@@ -45,4 +47,11 @@ public class UserServiceImpl   implements UserService {
         //so we don't need to switch db manually
         return orderEntityMapper.selectByPrimaryKey(orderId);
     }
+
+    @Override
+    public List<UserEntity> selectAll() {
+        return userEntityMapper.selectAll();
+    }
+
+
 }

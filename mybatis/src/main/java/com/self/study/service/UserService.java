@@ -3,6 +3,8 @@ package com.self.study.service;
 import com.self.study.domain.OrderEntity;
 import com.self.study.domain.UserEntity;
 
+import java.util.List;
+
 public interface UserService {
 
     void addUser(UserEntity userEntity);
@@ -13,4 +15,6 @@ public interface UserService {
 
     OrderEntity getOrder(int orderId);
 
+
+    List<UserEntity> selectAll();
 }

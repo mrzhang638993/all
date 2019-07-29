@@ -2,6 +2,9 @@ package com.self.study;
 
 
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.self.study.domain.OrderEntity;
 import com.self.study.domain.UserEntity;
 import com.self.study.service.UserService;
@@ -12,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.crypto.KeyGenerator;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 //import tk.mybatis.spring.annotation.MapperScan;
@@ -71,6 +75,20 @@ public class MybatisApplicationTests {
                 service.addOrder(order);
             }
         }
+    }
+
+
+    @Autowired
+    private   PageHelper  pageHelper;
+    @Test
+    public  void  testPage(){
+        //  实现分页查找的操作实现逻辑
+        PageHelper.startPage(1, 9);
+        List<UserEntity>list=service.selectAll();
+        PageInfo<UserEntity> pageInfo = new PageInfo<>(list);
+        pageInfo.getList().forEach(x->{
+            System.out.println(x.getUserId());
+        });
     }
 
 }
