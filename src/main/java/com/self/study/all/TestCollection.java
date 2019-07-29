@@ -1,6 +1,7 @@
 package com.self.study.all;
 
 import org.apache.commons.collections.set.SynchronizedSortedSet;
+import org.springframework.beans.propertyeditors.ReaderEditor;
 
 import java.util.*;
 
@@ -11,7 +12,8 @@ public class TestCollection {
         TestCollection testCollection = new TestCollection();
        // testCollection.testTreeMap();
        // testCollection.testSortedSet();
-        testCollection.testSynSet();
+        //testCollection.testSynSet();
+        testCollection.testEnumMap();
     }
 
     public   void   testTreeMap() {
@@ -54,6 +56,43 @@ public class TestCollection {
             sets.forEach(x->{
                 System.out.println(x);
             });
+        }
+
+          public   void   testEnumMap(){
+             // 使用Enum作为key,类似的EnumSet对应的是采用相同的机制的
+             EnumMap   enumMap= new EnumMap(Color.class);
+              enumMap.put(Color.RED,"red");
+              enumMap.put(Color.BLACK,"black");
+             enumMap.keySet().forEach(x->{
+                 System.out.println(x);
+                 System.out.println(enumMap.get(x));
+             });
+             //  测试对应的enumMap的接口的api的相关实现
+              enumMap.put(Color.YELLOW,"yellow");
+
+              enumMap.keySet().forEach(x->{
+                  System.out.println(x);
+                  System.out.println(enumMap.get(x));
+              });
+          }
+
+
+          public  enum   Color{
+              RED("red","1"),
+              YELLOW("yellow","2"),
+              BLACK("black","3");
+
+
+             private String  msg;
+             private  String key ;
+
+             private  Color(String msg,String key){
+                 this.msg=msg;
+                 this.key=key;
+             }
+
+
+
         }
 
 }
