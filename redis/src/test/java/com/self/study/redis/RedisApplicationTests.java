@@ -13,6 +13,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
+import redis.clients.jedis.JedisPool;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -183,7 +184,6 @@ public class RedisApplicationTests {
 
     @Test
     public  void  test(){
-        //   怎么在redisTemplate中使用相关的布隆过滤器进行操作实现
-
+        //   怎么在redisTemplate中使用相关的布隆过滤器进行操作实战
     }
 }

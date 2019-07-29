@@ -22,6 +22,8 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.*;
 
+import org.springframework.cache.interceptor.KeyGenerator;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -119,6 +121,18 @@ public class RedisConfig extends CachingConfigurerSupport {
     //  对应的还需要相关的哨兵的配置信息.需要关注一下
     @Bean
     public JedisCluster jedisCluster(){
+        //   或者是可以如下的配置和操作
+        // RedisSentinelConfiguration configuration = new RedisSentinelConfiguration();
+        //	String[] host = redisNodes.split(",");
+        //	for (String redisHost : host) {
+        //	 String[] item = redisHost.split(":");
+        //		String ip = item[0];
+        //			String port = item[1];
+        //			configuration.addSentinel(new RedisNode(ip, Integer.parseInt(port)));
+        //		}
+        //		configuration.setMaster(master);
+        //		return configuration;
+
         Set set=  new HashSet<>();
         Set<HostAndPort> CLUSTER_HOST_AND_PORTS = new HashSet(){{
             add(new HostAndPort("127.0.0.1", 6380));
@@ -135,6 +149,17 @@ public class RedisConfig extends CachingConfigurerSupport {
     // 配置对应的redis分片集群的配置信息
     @Bean
     public ShardedJedisPool shardedJedisPool(){
+        //  下面的是rediscluster集群的配置操作
+        //	RedisClusterConfiguration clusterConfiguration = clusterConfiguration = new RedisClusterConfiguration();
+        //	String[] hosts = clusterNodes.split(",");
+        //		for (String host : hosts) {
+        //			String[] item = host.split(":");
+        //			String ip = item[0];
+        //			String port = item[1];
+        //			clusterConfiguration.addClusterNode(new RedisNode(ip, Integer.parseInt(port)));
+        //		}
+        //		clusterConfiguration.setMaxRedirects(maxRedirects);
+        //		return clusterConfiguration;
         JedisPoolConfig  jedisPoolConfig= new JedisPoolConfig();
         //  下面是JedisShardInfo 分片集群信息
         List<JedisShardInfo> shards = new ArrayList<>();
@@ -153,5 +178,23 @@ public class RedisConfig extends CachingConfigurerSupport {
         return  new ShardedJedisPool(jedisPoolConfig,shards);
     }
 
-
+    /**
+     * 自定义生成redis-key
+     */
+    @Override
+    public KeyGenerator keyGenerator() {
+        return new KeyGenerator() {
+            @Override
+            public Object generate(Object o, Method method, Object... objects) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(o.getClass().getName()).append(".");
+                sb.append(method.getName()).append(".");
+                for (Object obj : objects) {
+                    sb.append(obj.toString());
+                }
+                System.out.println("keyGenerator=" + sb.toString());
+                return sb.toString();
+            }
+        };
+    }
 }
