@@ -1,5 +1,18 @@
-2019-07-31 06:00:52  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:00:54  [main:1401] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc;
+2019-07-30 10:29:39  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 10:31:20  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 10:33:35  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:20:18  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:23:28  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:26:28  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:29:37  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:35:35  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:43:33  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:46:23  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:51:56  [restartedMain:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 11:59:12  [restartedMain:1] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 12:09:25  [restartedMain:1] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 20:08:41  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 20:08:43  [main:1194] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 public class Protocol$Adaptive implements com.alibaba.dubbo.rpc.Protocol {
 public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
@@ -23,9 +36,9 @@ com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)Exten
 return extension.refer(arg0, arg1);
 }
 }, dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:00:54  [main:1404] - [WARN]   [DUBBO] No spring extension (bean) named:defaultCompiler, try to find an extension (bean) of type java.lang.String, dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:00:54  [main:1404] - [WARN]   [DUBBO] No spring extension (bean) named:defaultCompiler, type:java.lang.String found, stop get bean., dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:00:54  [main:1465] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+2019-07-30 20:08:43  [main:1197] - [WARN]   [DUBBO] No spring extension (bean) named:defaultCompiler, try to find an extension (bean) of type java.lang.String, dubbo version: 2.6.6, current host: 192.168.48.1
+2019-07-30 20:08:43  [main:1198] - [WARN]   [DUBBO] No spring extension (bean) named:defaultCompiler, type:java.lang.String found, stop get bean., dubbo version: 2.6.6, current host: 192.168.48.1
+2019-07-30 20:08:43  [main:1257] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc.cluster;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
 public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
@@ -37,7 +50,7 @@ com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster
 return extension.join(arg0);
 }
 }, dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:00:54  [main:1475] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc;
+2019-07-30 20:08:43  [main:1266] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
 public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
@@ -65,14 +78,8 @@ com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFacto
 return extension.getInvoker(arg0, arg1, arg2);
 }
 }, dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:01:27  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:03:20  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:06:07  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:06:55  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:10:58  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:13:18  [main:1] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:17:59  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:18:01  [main:1295] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc;
+2019-07-30 20:37:23  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+2019-07-30 20:37:24  [main:1124] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 public class Protocol$Adaptive implements com.alibaba.dubbo.rpc.Protocol {
 public void destroy() {throw new UnsupportedOperationException("method public abstract void com.alibaba.dubbo.rpc.Protocol.destroy() of interface com.alibaba.dubbo.rpc.Protocol is not adaptive method!");
@@ -96,9 +103,9 @@ com.alibaba.dubbo.rpc.Protocol extension = (com.alibaba.dubbo.rpc.Protocol)Exten
 return extension.refer(arg0, arg1);
 }
 }, dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:18:01  [main:1299] - [WARN]   [DUBBO] No spring extension (bean) named:defaultCompiler, try to find an extension (bean) of type java.lang.String, dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:18:01  [main:1299] - [WARN]   [DUBBO] No spring extension (bean) named:defaultCompiler, type:java.lang.String found, stop get bean., dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:18:01  [main:1350] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc.cluster;
+2019-07-30 20:37:24  [main:1127] - [WARN]   [DUBBO] No spring extension (bean) named:defaultCompiler, try to find an extension (bean) of type java.lang.String, dubbo version: 2.6.6, current host: 192.168.48.1
+2019-07-30 20:37:24  [main:1127] - [WARN]   [DUBBO] No spring extension (bean) named:defaultCompiler, type:java.lang.String found, stop get bean., dubbo version: 2.6.6, current host: 192.168.48.1
+2019-07-30 20:37:24  [main:1174] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc.cluster;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 public class Cluster$Adaptive implements com.alibaba.dubbo.rpc.cluster.Cluster {
 public com.alibaba.dubbo.rpc.Invoker join(com.alibaba.dubbo.rpc.cluster.Directory arg0) throws com.alibaba.dubbo.rpc.RpcException {
@@ -110,7 +117,7 @@ com.alibaba.dubbo.rpc.cluster.Cluster extension = (com.alibaba.dubbo.rpc.cluster
 return extension.join(arg0);
 }
 }, dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:18:01  [main:1358] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc;
+2019-07-30 20:37:24  [main:1182] - [DEBUG]   [DUBBO] package com.alibaba.dubbo.rpc;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 public class ProxyFactory$Adaptive implements com.alibaba.dubbo.rpc.ProxyFactory {
 public java.lang.Object getProxy(com.alibaba.dubbo.rpc.Invoker arg0) throws com.alibaba.dubbo.rpc.RpcException {
@@ -138,7 +145,3 @@ com.alibaba.dubbo.rpc.ProxyFactory extension = (com.alibaba.dubbo.rpc.ProxyFacto
 return extension.getInvoker(arg0, arg1, arg2);
 }
 }, dubbo version: 2.6.6, current host: 192.168.48.1
-2019-07-31 06:19:11  [main:1] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:21:17  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:23:28  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
-2019-07-31 06:26:49  [main:0] - [INFO]  using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
