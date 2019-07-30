@@ -1,5 +1,6 @@
 package com.self.study.rest.config;
 
+import com.alibaba.dubbo.common.Version;
 import com.alibaba.dubbo.config.*;
 import com.self.study.dubboproducer.interfaces.DemoService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,6 +21,8 @@ public class ConsumerConfiguration {
         protocolConfig.setName("dubbo");
         return  protocolConfig;
     }
+
+
 
     //  注册中心配置
     @Bean("consumerRegistry")
