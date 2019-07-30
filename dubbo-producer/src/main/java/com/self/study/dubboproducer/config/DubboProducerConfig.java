@@ -12,6 +12,7 @@ import java.util.List;
 
 
 //  对外提供dubbo服务的配置类信息
+/*
 @Configuration
 public class DubboProducerConfig {
 
@@ -70,5 +71,5 @@ public class DubboProducerConfig {
         serviceConfig.setProtocols(protocolConfigs);
         return serviceConfig;
     }
-
 }
+*/

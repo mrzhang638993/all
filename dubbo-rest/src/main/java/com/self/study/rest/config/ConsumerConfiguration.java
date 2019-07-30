@@ -12,17 +12,17 @@ import org.springframework.context.annotation.Configuration;
 
 
 //  消费信息
-@Configuration
+/*@Configuration
 public class ConsumerConfiguration {
 
 
     //  协议配置
-   /* @Bean(name="consumerProtocol")
+   *//* @Bean(name="consumerProtocol")
     public ProtocolConfig protocolConfig(){
         ProtocolConfig protocolConfig= new ProtocolConfig();
         protocolConfig.setName("dubbo");
         return  protocolConfig;
-    }*/
+    }*//*
 
 
 
@@ -68,4 +68,4 @@ public class ConsumerConfiguration {
         referenceConfig.setProtocol("dubbo");
         return  referenceConfig;
     }
-}
+}*/

@@ -16,7 +16,7 @@ import java.util.List;
 
 
 //  对外提供rest服务的配置类信息
-@Configuration
+/*@Configuration
 public class RestProducerConfig {
 
     //  协议配置
@@ -75,9 +75,9 @@ public class RestProducerConfig {
    }
 
 
- /*   @Bean
+ *//*   @Bean
     public ServletWebServerFactory servletWebServerFactory(){
         ServletWebServerFactory  servletWebServerFactory= new TomcatServletWebServerFactory() ;
         return   servletWebServerFactory;
-    }*/
-}
+    }*//*
+}*/
