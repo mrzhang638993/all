@@ -7,12 +7,14 @@
         <module>dubbo-test</module>
         <module>dubbo-api</module>
         <module>redis</module>
+        <module>dubbo-rest</module>
         <module>consumer</module>
         <module>producer</module>
         <module>netty</module>
         <module>zookeeper</module>
         <module>mybatis</module>
         <module>mongdb</module>
+        <module>activemq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
