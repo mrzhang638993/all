@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 //  消费信息
 @Configuration
@@ -15,12 +18,12 @@ public class ConsumerConfiguration {
 
 
     //  协议配置
-    @Bean(name="consumerProtocol")
+   /* @Bean(name="consumerProtocol")
     public ProtocolConfig protocolConfig(){
         ProtocolConfig protocolConfig= new ProtocolConfig();
         protocolConfig.setName("dubbo");
         return  protocolConfig;
-    }
+    }*/
 
 
 
@@ -56,8 +59,8 @@ public class ConsumerConfiguration {
 
     //  完成对应的实现相关的dubbo   reference  config的相关操作
     @Bean
-    @ConditionalOnClass({ProtocolConfig.class,RegistryConfig.class,ApplicationConfig.class,ConsumerConfig.class})
-    public ReferenceConfig  referenceConfig(@Qualifier("consumerProtocol") ProtocolConfig protocolConfig, @Qualifier("consumerRegistry") RegistryConfig  registryConfig, @Qualifier("consumerApplication") ApplicationConfig  applicationConfig,@Qualifier("consumerConfig")ConsumerConfig  consumerConfig){
+    @ConditionalOnClass({RegistryConfig.class,ApplicationConfig.class,ConsumerConfig.class})
+    public ReferenceConfig  referenceConfig(@Qualifier("consumerRegistry") RegistryConfig  registryConfig, @Qualifier("consumerApplication") ApplicationConfig  applicationConfig,@Qualifier("consumerConfig")ConsumerConfig  consumerConfig){
         ReferenceConfig  referenceConfig= new ReferenceConfig();
         referenceConfig.setApplication(applicationConfig);
         referenceConfig.setRegistry(registryConfig);
@@ -65,6 +68,7 @@ public class ConsumerConfiguration {
         referenceConfig.setInterface(DemoService.class);
         //  设置消费端的配置参数信息
         referenceConfig.setConsumer(consumerConfig);
+        referenceConfig.setProtocol("dubbo");
         return  referenceConfig;
     }
 }

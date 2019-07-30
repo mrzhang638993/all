@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 //  对外提供rest服务的配置类信息
 @Configuration
@@ -61,6 +64,9 @@ public class RestProducerConfig {
         serviceConfig.setInterface(UserService.class);
         serviceConfig.setRegister(true);
         serviceConfig.setApplication(applicationConfig);
+        List<ProtocolConfig> protocolConfigs= new ArrayList<>();
+        protocolConfigs.add(protocolConfig);
+        serviceConfig.setProtocols(protocolConfigs);
        return   serviceConfig;
    }
 

@@ -7,8 +7,11 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
 
-//  对外提供rest服务的配置类信息
+
+//  对外提供dubbo服务的配置类信息
 @Configuration
 public class DubboProducerConfig {
 
@@ -17,7 +20,7 @@ public class DubboProducerConfig {
     public ProtocolConfig protocolConfig() {
         ProtocolConfig protocolConfig = new ProtocolConfig();
         protocolConfig.setName("dubbo");
-        protocolConfig.setPort(8080);
+        protocolConfig.setPort(10080);
         return protocolConfig;
     }
 
@@ -28,7 +31,7 @@ public class DubboProducerConfig {
         registryConfig.setProtocol("zookeeper");
         //  设置注册和消费
         registryConfig.setRegister(true);
-        registryConfig.setSubscribe(true);
+        //registryConfig.setSubscribe(true);
         registryConfig.setAddress("127.0.0.1");
         return registryConfig;
     }
@@ -61,6 +64,10 @@ public class DubboProducerConfig {
         serviceConfig.setInterface(DemoService.class);
         serviceConfig.setRegister(true);
         serviceConfig.setApplication(applicationConfig);
+        serviceConfig.setRegistry(registryConfig);
+        List<ProtocolConfig> protocolConfigs= new ArrayList<>();
+        protocolConfigs.add(protocolConfig);
+        serviceConfig.setProtocols(protocolConfigs);
         return serviceConfig;
     }
 
