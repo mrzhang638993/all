@@ -16,7 +16,7 @@ public class DubboProducerConfig {
     @Bean(name = "dubboProtocol")
     public ProtocolConfig protocolConfig() {
         ProtocolConfig protocolConfig = new ProtocolConfig();
-        protocolConfig.setName("rest");
+        protocolConfig.setName("dubbo");
         protocolConfig.setPort(8080);
         return protocolConfig;
     }
@@ -63,5 +63,7 @@ public class DubboProducerConfig {
         serviceConfig.setApplication(applicationConfig);
         return serviceConfig;
     }
+
+
 
 }

@@ -4,12 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>dubbo-test</module>
-        <module>dubbo-api</module>
         <module>redis</module>
         <module>dubbo-rest</module>
-        <module>consumer</module>
-        <module>producer</module>
+        <module>dubbo-producer</module>
         <module>netty</module>
         <module>zookeeper</module>
         <module>mybatis</module>

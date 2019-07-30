@@ -104,6 +104,12 @@
             <artifactId>jetty</artifactId>
             <version>6.1.26</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.self.study</groupId>
+            <artifactId>dubbo-producer</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
