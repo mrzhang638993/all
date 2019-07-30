@@ -1,6 +1,6 @@
 package com.self.study.rest.config;
 
-import com.alibaba.dubbo.common.Version;
+
 import com.alibaba.dubbo.config.*;
 import com.self.study.dubboproducer.interfaces.DemoService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -8,8 +8,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 //  消费信息
@@ -52,8 +51,6 @@ public class ConsumerConfiguration {
     public ConsumerConfig consumerConfig(){
         ConsumerConfig  consumerConfig= new ConsumerConfig();
         consumerConfig.setTimeout(20000);
-        consumerConfig.setCorethreads(5);
-        consumerConfig.setThreadpool("fixed");
         return  consumerConfig;
     }
 

@@ -71,6 +71,4 @@ public class DubboProducerConfig {
         return serviceConfig;
     }
 
-
-
 }

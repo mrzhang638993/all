@@ -4,6 +4,10 @@ import com.alibaba.dubbo.config.*;
 import com.self.study.rest.UserService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServer;
+import org.springframework.boot.web.servlet.ServletContextInitializer;
+import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,7 +24,7 @@ public class RestProducerConfig {
     public ProtocolConfig protocolConfig(){
         ProtocolConfig protocolConfig= new ProtocolConfig();
         protocolConfig.setName("rest");
-        protocolConfig.setPort(8080);
+        protocolConfig.setPort(20000);
         return  protocolConfig;
     }
 
@@ -70,4 +74,10 @@ public class RestProducerConfig {
        return   serviceConfig;
    }
 
+
+ /*   @Bean
+    public ServletWebServerFactory servletWebServerFactory(){
+        ServletWebServerFactory  servletWebServerFactory= new TomcatServletWebServerFactory() ;
+        return   servletWebServerFactory;
+    }*/
 }

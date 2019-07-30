@@ -8,11 +8,15 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.alibaba.dubbo.rpc.RpcContext;
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.self.study.dubboproducer.interfaces.DemoService;
 
 
 @Path("user")
 public class UserServiceImpl implements UserService {
+
+    @Reference
+    private DemoService  demoService;
 
     @POST
     @Path("regist")
@@ -20,10 +24,11 @@ public class UserServiceImpl implements UserService {
     @Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
     @Override
     public String regist(User user) {
-        System.out.println(user);
+        /*System.out.println(user);
         HttpServletRequest request = (HttpServletRequest) RpcContext.getContext().getRequest();
-        String host = request.getLocalAddr();
-        return "regist success!, ur host is:" + host;
+        String host = request.getLocalAddr();*/
+       /* return "regist success!, ur host is:" + host;*/
+        return   demoService.sayHello("good");
     }
 
     @POST
