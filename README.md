@@ -11,4 +11,8 @@ mybatis部分的shiro代码借鉴如下地址：https://gitee.com/yadong.zhang/s
 4.在master分支上推送到远程的master分支上，即可完成相关的git 代码合并的操作。
 
 
+#  
+不要使用纯粹的使用java配置的dubbo服务的，存在很多的问题的，尝试的难度极大。
+不建议并且不推崇这么做，浪费很多时间，需要进行关注。
+
 
